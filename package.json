@@ -1,0 +1,53 @@
+{
+  "name": "md-to-html",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "author": "Ricardo Alexis Quiroz Bazan <raquirozbazan@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src -d lib --ignore **/*.spec.js",
+    "test": "yarn jest --rootDir=src",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.{js,json,md}\"",
+    "validate": "run-p check-format"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "remark-extract-frontmatter": "^3.0.0",
+    "remark-frontmatter": "^3.0.0",
+    "remark-gemoji": "^6.0.0",
+    "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
+    "remark-parse-yaml": "^0.0.3",
+    "remark-twemoji": "^0.1.1",
+    "twemoji": "^13.0.1",
+    "unified": "^9.2.0",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.6",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1"
+  }
+}
