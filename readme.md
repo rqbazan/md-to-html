@@ -76,6 +76,12 @@ Here is the generated HTML:
 - [remark-twemoji](https://www.npmjs.org/package/remark-twemoji)
 - [remark-html](https://www.npmjs.org/package/remark-html)
 
+## License
+
+[MIT][license] © [Ricardo Q. Bazan][author]
+
 <!-- Definitions -->
 
 [unified]: https://github.com/unifiedjs/unified
+[author]: https://sxntixgo.codes
+[license]: https://github.com/rqbazan/md-to-html/blob/main/LICENSE
