@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
-import htmlWf from './index'
+import mdToHtml from './index'
 
 test('should return the html and metadata', async () => {
   const filepath = path.join(__dirname, 'fixtures', '01.md')
   const doc = await fs.promises.readFile(filepath)
-  const vfile = htmlWf.processSync(doc)
+  const vfile = mdToHtml.processSync(doc)
 
   expect(vfile.data).toMatchInlineSnapshot(`
     Object {
