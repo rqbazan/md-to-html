@@ -3,6 +3,8 @@
 [**unified**][unified] processor to parse and serialize Markdown to HTML.
 Powered by my favorite plugins.
 
+[![npm version](https://badge.fury.io/js/%40rqbazan%2Fmd-to-html.svg)](https://badge.fury.io/js/%40rqbazan%2Fmd-to-html)
+
 ## Install
 
 ```sh
