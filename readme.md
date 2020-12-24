@@ -3,6 +3,12 @@
 [**unified**][unified] processor to parse and serialize Markdown to HTML.
 Powered by my favorite plugins.
 
+## Install
+
+```sh
+> yarn add @rqbazan/md-to-html
+```
+
 ## Usage
 
 Say we have the following file, `doc.md`
