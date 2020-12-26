@@ -32,7 +32,7 @@ And our script, `index.js`, looks as follows:
 ```js
 import path from 'path'
 import fs from 'fs'
-import mdToHtml from './index'
+import mdToHtml from '@rqbazan/md-to-html'
 
 function main() {
   const pathfile = path.join(__dirname, 'doc.md')
