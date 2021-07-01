@@ -18,7 +18,7 @@ test('should return the html and metadata', async () => {
   `)
 
   expect(vfile.toString()).toMatchInlineSnapshot(`
-"<h1>Sample note <img class=\\"emoji\\" draggable=\\"false\\" alt=\\"🎉\\" src=\\"https://twemoji.maxcdn.com/v/13.1.0/32x32/1f389.png\\" height=\\"16\\" width=\\"16\\"/></h1>
+"<h1>Sample note <img class=\\"emoji\\" draggable=\\"false\\" alt=\\"🎉\\" src=\\"https://twemoji.maxcdn.com/v/13.1.0/72x72/1f389.png\\" title=\\"🎉\\"/></h1>
 <p>Here's a quick sample note that shows you some of the most common use cases:</p>
 <ul>
 <li>Style text in <em>different</em> ways <strong><em>like this</em></strong>.</li>
@@ -42,6 +42,10 @@ test('should return a 72x72 emoji', async () => {
   const customMdToHtml = buildProcessor({
     twemoji: {
       size: 72,
+      attributes: () => ({
+        height: '16',
+        width: '16',
+      }),
     },
   })
 
@@ -56,7 +60,7 @@ test('should return a 72x72 emoji', async () => {
   `)
 
   expect(vfile.toString()).toMatchInlineSnapshot(`
-"<h1>Sample note <img class=\\"emoji\\" draggable=\\"false\\" alt=\\"🎉\\" src=\\"https://twemoji.maxcdn.com/v/13.1.0/72x72/1f389.png\\" title=\\"🎉\\"/></h1>
+"<h1>Sample note <img class=\\"emoji\\" draggable=\\"false\\" alt=\\"🎉\\" src=\\"https://twemoji.maxcdn.com/v/13.1.0/72x72/1f389.png\\" height=\\"16\\" width=\\"16\\"/></h1>
 <p>Here's a quick sample note that shows you some of the most common use cases:</p>
 <ul>
 <li>Style text in <em>different</em> ways <strong><em>like this</em></strong>.</li>
