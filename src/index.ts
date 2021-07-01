@@ -7,13 +7,31 @@ import remarkGemoji from 'remark-gemoji'
 import remarkTwemoji from 'remark-twemoji'
 import remarkHtml from 'remark-html'
 
-const mdToHtml = unified()
-  .use(remarkParse)
-  .use(remarkFrontmatter)
-  .use(remarkYaml, { yaml: yaml.parse })
-  .use(remarkGemoji)
-  .use(remarkTwemoji)
-  .use(remarkHtml)
-  .freeze()
+export interface MdToHtmlOptions {
+  twemoji?: {
+    size?: number | string
+    attributes?: () => object
+  }
+}
+
+export const defaultOptions: MdToHtmlOptions = {
+  twemoji: {
+    size: 32,
+    attributes: () => ({ height: '16', width: '16' }),
+  },
+}
+
+export function buildProcessor(options: MdToHtmlOptions = defaultOptions) {
+  return unified()
+    .use(remarkParse)
+    .use(remarkFrontmatter)
+    .use(remarkYaml, { yaml: yaml.parse })
+    .use(remarkGemoji)
+    .use(remarkTwemoji, options.twemoji)
+    .use(remarkHtml)
+    .freeze()
+}
+
+const mdToHtml = buildProcessor()
 
 export default mdToHtml
