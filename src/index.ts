@@ -14,20 +14,13 @@ export interface MdToHtmlOptions {
   }
 }
 
-export const defaultOptions: MdToHtmlOptions = {
-  twemoji: {
-    size: 32,
-    attributes: () => ({ height: '16', width: '16' }),
-  },
-}
-
-export function buildProcessor(options: MdToHtmlOptions = defaultOptions) {
+export function buildProcessor(options?: MdToHtmlOptions) {
   return unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkYaml, { yaml: yaml.parse })
     .use(remarkGemoji)
-    .use(remarkTwemoji, options.twemoji)
+    .use(remarkTwemoji, options && options.twemoji)
     .use(remarkHtml)
     .freeze()
 }
