@@ -7,7 +7,7 @@ import remarkGemoji from 'remark-gemoji'
 import remarkTwemoji from 'remark-twemoji'
 import remarkHtml from 'remark-html'
 
-export default unified()
+const mdToHtml = unified()
   .use(remarkParse)
   .use(remarkFrontmatter)
   .use(remarkYaml, { yaml: yaml.parse })
@@ -15,3 +15,5 @@ export default unified()
   .use(remarkTwemoji)
   .use(remarkHtml)
   .freeze()
+
+export default mdToHtml
